@@ -31,4 +31,5 @@ public class DonationService {
                 -> new WhiproundNotFoundException("Whipround with following id not found: " + id));
     }
 
+
 }
