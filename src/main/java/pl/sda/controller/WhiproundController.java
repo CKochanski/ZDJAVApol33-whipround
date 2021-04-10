@@ -29,4 +29,9 @@ public class WhiproundController {
         return whiproundService.createWhipround(whipround);
     }
 
+    @GetMapping("/not-finished-whiprounds")
+    public List<WhiproundDto> getAllNotFinishedWhiprounds () {
+        return whiproundService.getAllNotFinishedWhiprounds();
+    }
+
 }
