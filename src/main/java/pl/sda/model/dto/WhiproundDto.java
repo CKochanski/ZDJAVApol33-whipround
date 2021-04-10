@@ -1,21 +1,26 @@
 package pl.sda.model.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@Value
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class WhiproundDto {
 
-    Long id;
+    private Long id;
 
-    LocalDate startDate;
+    private LocalDate startDate;
 
-    LocalDate endDate;
+    private LocalDate endDate;
 
-    BigDecimal goal;
+    private BigDecimal goal;
 
-    String description;
+    private String description;
 }
