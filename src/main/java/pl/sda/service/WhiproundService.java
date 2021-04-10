@@ -4,6 +4,7 @@ package pl.sda.service;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import pl.sda.exception.WhiproundNotFoundException;
 import pl.sda.model.Donation;
 import pl.sda.model.Whipround;
 import pl.sda.model.dto.NewWhiproundDto;
@@ -49,5 +50,11 @@ public class WhiproundService {
                     .reduce(BigDecimal.ZERO, BigDecimal::add);
             return sum.compareTo(whipround.getGoal()) < 0;
         };
+    }
+
+    public WhiproundDto getWhiproundById(Long id) {
+        return whiproundRepository.findById(id).map(
+                whipround -> modelMapper.map(whipround, WhiproundDto.class)).orElseThrow(() ->
+                new WhiproundNotFoundException("Whipround with following id not found: " + id));
     }
 }

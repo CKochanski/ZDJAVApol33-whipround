@@ -19,7 +19,7 @@ public class WhiproundController {
     private final WhiproundService whiproundService;
 
     @GetMapping("/whiprounds")
-    public List<WhiproundDto> getAllWhiprounds (){
+    public List<WhiproundDto> getAllWhiprounds() {
         return whiproundService.getAllWhipround();
     }
 
@@ -30,8 +30,14 @@ public class WhiproundController {
     }
 
     @GetMapping("/not-finished-whiprounds")
-    public List<WhiproundDto> getAllNotFinishedWhiprounds () {
+    public List<WhiproundDto> getAllNotFinishedWhiprounds() {
         return whiproundService.getAllNotFinishedWhiprounds();
     }
+
+    @GetMapping("/whipround/{id}")
+    public WhiproundDto getWhiproundById(@PathVariable Long id) {
+        return whiproundService.getWhiproundById(id);
+    }
+
 
 }
